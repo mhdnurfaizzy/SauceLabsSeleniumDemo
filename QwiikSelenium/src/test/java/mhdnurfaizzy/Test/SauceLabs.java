@@ -1,6 +1,7 @@
 package mhdnurfaizzy.Test;
 
 import mhdnurfaizzy.pageobjects.CartPage;
+import mhdnurfaizzy.pageobjects.CheckoutPage;
 import mhdnurfaizzy.pageobjects.LoginPage;
 import mhdnurfaizzy.pageobjects.ProductCatalogue;
 import mhdnurfaizzy.testComponent.baseTesting;
@@ -14,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SauceLabs extends baseTesting {
+    String fN = "Izi";
+    String lN = "mhd";
+    String postalCode = "40001";
 
     @Test(dataProvider= "getData")
     public void e2e(HashMap<String, String> input) throws InterruptedException {
@@ -30,6 +34,11 @@ public class SauceLabs extends baseTesting {
         CartPage cartPage = loginPage.goToCartPage();
         boolean match = cartPage.verifyProductTitleDisplayed(input.get("product"));
         Assert.assertTrue(match);
+
+        //checkout page
+        CheckoutPage checkoutPage = cartPage.goToCheckout();
+        checkoutPage.fillCheckoutInformation(fN,lN,postalCode);
+
     }
 
     @DataProvider

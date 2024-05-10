@@ -12,7 +12,7 @@ public class CartPage extends abstractComponent{
 	
 	WebDriver driver;
 	
-	@FindBy(css="li[class='totalRow'] button[type='button']")
+	@FindBy(css="#checkout")
 	 WebElement checkoutEle;
 	
 	@FindBy(css="div[class='inventory_item_name']")

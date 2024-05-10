@@ -22,19 +22,23 @@ public class CheckoutPage extends abstractComponent{
 	@FindBy(css=".action__submit")
 	 WebElement submit;
 	
-	@FindBy(css="input[placeholder='Select Country']")
-	 WebElement country;
+	@FindBy(css="#first-name")
+	 WebElement firstName;
+	@FindBy(css="#last-name")
+	WebElement lastName;
+	@FindBy(css="#postal-code")
+	WebElement zip;
 	
 	@FindBy(css=".ta-item:nth-of-type(2)")
 	 WebElement selectCountry;
 	
 	By result = By.cssSelector(".ta-results");
 	
-	public void selectCountry(String countryName) {
-		Actions a = new Actions(driver);
-		a.sendKeys(country, countryName).build().perform();
-		waitElementForAppear(By.cssSelector(".ta-results"));
-		selectCountry.click();
+	public void fillCheckoutInformation(String fN, String lN, String postalCode) {
+		firstName.sendKeys(fN);
+		lastName.sendKeys(lN);
+		zip.sendKeys(postalCode);
+
 	}
 	
 	public ConfirmationPage submitOrder() {
