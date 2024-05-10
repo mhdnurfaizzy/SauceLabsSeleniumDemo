@@ -18,11 +18,8 @@ public class abstractComponent {
 	
 	WebDriver driver;
 	
-	@FindBy(css="[routerlink*='cart']")
+	@FindBy(css="a[class='shopping_cart_link']")
 	 WebElement cartHeader;
-	
-	@FindBy(css="[routerlink*='myorders']")
-	 WebElement orderHeader;
 
 	@FindBy(css=".app_logo")
 	WebElement appLogoHeader;
@@ -55,12 +52,6 @@ public class abstractComponent {
 		cartHeader.click();
 		CartPage cartPage = new CartPage(driver);
 		return cartPage;
-	}
-	
-	public OrderPage goToOrderPage() {
-		orderHeader.click();
-		OrderPage orderPage = new OrderPage(driver);
-		return orderPage;
 	}
 
 	public LoginPage welcomePage() {

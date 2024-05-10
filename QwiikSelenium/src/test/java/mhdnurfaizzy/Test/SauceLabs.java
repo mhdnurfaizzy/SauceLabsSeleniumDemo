@@ -1,5 +1,6 @@
 package mhdnurfaizzy.Test;
 
+import mhdnurfaizzy.pageobjects.CartPage;
 import mhdnurfaizzy.pageobjects.LoginPage;
 import mhdnurfaizzy.pageobjects.ProductCatalogue;
 import mhdnurfaizzy.testComponent.baseTesting;
@@ -20,11 +21,15 @@ public class SauceLabs extends baseTesting {
         loginPage.loginApplication(input.get("email"), input.get("password"));
         loginPage.welcomePage();
 
-        //verify product
+        //add product to cart
         ProductCatalogue productCatalog = new ProductCatalogue(driver);
         List<WebElement> products = productCatalog.getListProducts();
         productCatalog.addProductToCart(input.get("product"));
-//        Assert.assertTrue(match);
+
+        //verify product on cart
+        CartPage cartPage = loginPage.goToCartPage();
+        boolean match = cartPage.verifyProductTitleDisplayed(input.get("product"));
+        Assert.assertTrue(match);
     }
 
     @DataProvider
