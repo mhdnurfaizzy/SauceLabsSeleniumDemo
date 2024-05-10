@@ -27,12 +27,18 @@ public class LoginPage extends abstractComponent {
     @FindBy(css="#login-button")
     WebElement submit;
 
-    @FindBy(css=".error-message-container.error")
+    @FindBy(css="h3[data-test='error']")
     WebElement errorMessage;
+
 
     public void goTo()
     {
         driver.get("https://www.saucedemo.com/");
+    }
+
+    public String getErrorMessage() {
+        waitWebElementForAppear(errorMessage);
+        return errorMessage.getText();
     }
 
 
@@ -40,7 +46,6 @@ public class LoginPage extends abstractComponent {
         useremail.sendKeys(email);
         passwordEle.sendKeys(password);
         submit.click();
-
 
     }
 

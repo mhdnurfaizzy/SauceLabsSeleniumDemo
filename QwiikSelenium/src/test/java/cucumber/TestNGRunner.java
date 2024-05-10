@@ -4,10 +4,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features="src/test/java/cucumber", 
+		features="src/test/java/cucumber",
 		glue="mhdnurfaizzy.stepDefinitions", 
 		monochrome=true, 
-		tags="@Regression",
+//		tags="@Regression",
 		plugin= {"html:target.html"
 				
 		})

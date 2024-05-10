@@ -18,21 +18,22 @@
 #Sample Feature Definition Template
 @tag
 Feature: Purchase the order from E-commerce Website
-  I want to use this template for my feature file
-  
+
   Background:
   Given I landed on ecommerce page
 	
-	@Regression
+#  @Regression
+  @Tag2
   Scenario Outline: Positive case of submiting order 
     Given I login with email <email> and password <password>
-    Then I added product <productName> to cart
-    And Checkout <productName> and submit order
-    Then "THANKYOU FOR THE ORDER." message is displayed on confirmationPage
+    When I added product <productName> to cart
+      And I Checkout <productName> and fill overview <firstName> <lastName> <zip> information
+    Then Checkout <productName> and submit order
+    Then "Thank you for your order!" message is displayed on confirmationPage
 
     Examples: 
-      | email  				| password 		| productName  |
-      | izi@gmail.com | Testing890- | ZARA COAT 3  |
+      | email  		  | password     | productName          | firstName | lastName | zip   |
+      | standard_user | secret_sauce | Sauce Labs Backpack  | izi       | izi      | 40001 |
       
       
       

@@ -32,11 +32,11 @@ public class SauceLabs extends baseTesting {
         boolean match = cartPage.verifyProductTitleDisplayed(input.get("product"));
         Assert.assertTrue(match);
 
-        //checkout page
+        //Overview - fill details information
         CheckoutPage checkoutPage = cartPage.goToCheckout();
         checkoutPage.fillCheckoutInformation(fN,lN,postalCode);
 
-        //Checkout-Overview Page
+        //Checkout and Submit Order
         OverviewPage overviewPage = checkoutPage.submitOrder();
         boolean matchProduct = overviewPage.verifyProductTitle(input.get("product"));
         Assert.assertTrue(matchProduct);
