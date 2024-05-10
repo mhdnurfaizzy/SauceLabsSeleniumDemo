@@ -1,0 +1,37 @@
+
+
+@tag
+Feature: User Login and Place Order
+
+  Background:
+    Given I landed on ecommerce page
+
+  Scenario Outline: Positive case of submiting order
+      Given I login with email <email> and password <password>
+      When I added product <productName> to cart
+      And I Checkout <productName> and fill overview <firstName> <lastName> <zip> information
+      Then Checkout <productName> and submit order
+      Then "Thank you for your order!" message is displayed on confirmationPage
+
+  Scenario Outline: Invalid login credentials
+      Given I landed on ecommerce page
+      When I login with email <email> and password <password>
+      Then "Epic sadface: Username and password do not match any user in this service" message is displayed
+
+  Scenario: User adds a product to the cart and proceeds to checkout
+    Given I am logged in to the Sauce Labs website
+    When I select a product and add it to the cart
+    And I proceed to checkout
+    Then I should see the checkout page
+
+  Scenario: User enters overview details information
+    Given I am on the checkout page
+    When I enter overview details information
+    And I confirm the order
+    Then I should see a confirmation message
+    And my order should be placed successfully
+
+  Scenario: User logs out of the website
+    Given I am logged in to the Sauce Labs website
+    When I click on the logout button
+    Then I should be logged out successfully
