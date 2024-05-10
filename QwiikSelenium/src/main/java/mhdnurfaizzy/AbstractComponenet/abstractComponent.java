@@ -1,6 +1,8 @@
 package mhdnurfaizzy.AbstractComponenet;
 
 import java.time.Duration;
+
+import mhdnurfaizzy.pageobjects.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +23,9 @@ public class abstractComponent {
 	
 	@FindBy(css="[routerlink*='myorders']")
 	 WebElement orderHeader;
+
+	@FindBy(css=".app_logo")
+	WebElement appLogoHeader;
 	
 	public abstractComponent(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -56,6 +61,13 @@ public class abstractComponent {
 		orderHeader.click();
 		OrderPage orderPage = new OrderPage(driver);
 		return orderPage;
+	}
+
+	public LoginPage welcomePage() {
+		waitWebElementForAppear(appLogoHeader);
+		appLogoHeader.isDisplayed();
+		LoginPage loginPage = new LoginPage(driver);
+		return loginPage;
 	}
 
 }

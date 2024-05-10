@@ -14,7 +14,7 @@ import com.aventstack.extentreports.Status;
 
 import mhdnurfaizzy.resource.ExtentReporterNG;
 
-public class Listeners extends baseTest implements ITestListener {
+public class Listeners extends baseTesting implements ITestListener {
 
 	ExtentTest test;
 	ExtentReports extent =ExtentReporterNG.getReportObject();

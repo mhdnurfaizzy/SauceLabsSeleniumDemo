@@ -11,8 +11,6 @@ import mhdnurfaizzy.AbstractComponenet.abstractComponent;
 
 public class ProductCatalogue extends abstractComponent{
 
-	
-
 	WebDriver driver;
 	
 	public ProductCatalogue(WebDriver driver)
@@ -46,7 +44,7 @@ public class ProductCatalogue extends abstractComponent{
 	}
 	
 	public void addProductToCart(String productName) throws InterruptedException {
-		WebElement prod =  getProductByName(productName);
+		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCart).click();
 		waitElementForAppear(toastMessage);
 //		waitElementUntillDissapear(spinner);

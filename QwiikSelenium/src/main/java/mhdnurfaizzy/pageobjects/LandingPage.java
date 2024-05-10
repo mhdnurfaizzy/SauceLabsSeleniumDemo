@@ -9,8 +9,6 @@ import mhdnurfaizzy.AbstractComponenet.abstractComponent;
 
 public class LandingPage extends abstractComponent{
 
-	
-
 	WebDriver driver;
 	
 	public LandingPage(WebDriver driver)
@@ -41,7 +39,7 @@ public class LandingPage extends abstractComponent{
 	
 	public void goTo()
 	{
-		driver.get("https://rahulshettyacademy.com/client");
+		driver.get("https://www.saucedemo.com/");
 	}
 	
 	public ProductCatalogue loginApplication(String email, String password) {
