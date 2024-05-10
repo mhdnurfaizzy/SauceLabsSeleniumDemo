@@ -19,7 +19,7 @@ public class CheckoutPage extends abstractComponent{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css=".action__submit")
+	@FindBy(css="#continue")
 	 WebElement submit;
 	
 	@FindBy(css="#first-name")
@@ -41,12 +41,9 @@ public class CheckoutPage extends abstractComponent{
 
 	}
 	
-	public ConfirmationPage submitOrder() {
-//		waitWebElementForAppear(submit);
-        Actions b = new Actions(driver);
-        b.scrollToElement(submit).perform();
+	public OverviewPage submitOrder() {
 		submit.click();
-		return new ConfirmationPage(driver);
+		return new OverviewPage(driver);
 	}
 	
 

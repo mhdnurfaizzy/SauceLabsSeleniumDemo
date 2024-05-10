@@ -1,9 +1,6 @@
 package mhdnurfaizzy.Test;
 
-import mhdnurfaizzy.pageobjects.CartPage;
-import mhdnurfaizzy.pageobjects.CheckoutPage;
-import mhdnurfaizzy.pageobjects.LoginPage;
-import mhdnurfaizzy.pageobjects.ProductCatalogue;
+import mhdnurfaizzy.pageobjects.*;
 import mhdnurfaizzy.testComponent.baseTesting;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -38,6 +35,17 @@ public class SauceLabs extends baseTesting {
         //checkout page
         CheckoutPage checkoutPage = cartPage.goToCheckout();
         checkoutPage.fillCheckoutInformation(fN,lN,postalCode);
+
+        //Checkout-Overview Page
+        OverviewPage overviewPage = checkoutPage.submitOrder();
+        boolean matchProduct = overviewPage.verifyProductTitle(input.get("product"));
+        Assert.assertTrue(matchProduct);
+
+        //Confirmation Page
+        ConfirmationPage confirmationPage = overviewPage.finishOrder();
+        String confirmMassage = confirmationPage.confirmationMessagge();
+        Assert.assertTrue(confirmMassage.equalsIgnoreCase("Thank you for your order!"));
+
 
     }
 
