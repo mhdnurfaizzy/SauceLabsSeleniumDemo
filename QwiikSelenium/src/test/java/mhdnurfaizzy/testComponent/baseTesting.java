@@ -3,7 +3,6 @@ package mhdnurfaizzy.testComponent;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import mhdnurfaizzy.pageobjects.LandingPage;
 import mhdnurfaizzy.pageobjects.LoginPage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
