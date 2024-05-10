@@ -21,14 +21,17 @@ public class ProductCatalogue extends abstractComponent{
 	}
 	
 	//PageFactory
-	@FindBy(css=".mb-3")
-	 List<WebElement> products;
+//	@FindBy(css=".mb-3")
+//	 List<WebElement> products;
+
+	@FindBy(css="div[class='inventory_item']")
+	List<WebElement> products;
 	
 	@FindBy(css=".ng-animating")
 	 WebElement spinner;
 	
-	By productsBy = By.cssSelector(".mb-3");
-	By addToCart = By.cssSelector(".card-body button:last-of-type");
+	By productsBy = By.cssSelector("div[class='inventory_item']");
+	By addToCart = By.cssSelector("#add-to-cart-sauce-labs-backpack");
 	By toastMessage = By.cssSelector("#toast-container");
 	
 	
@@ -39,14 +42,14 @@ public class ProductCatalogue extends abstractComponent{
 	
 	public WebElement getProductByName(String productName) {
 		WebElement prod = products.stream().filter(product->
-		product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
+		product.findElement(By.cssSelector("a[id='item_4_title_link'] div[class='inventory_item_name ']")).getText().equals(productName)).findFirst().orElse(null);
 		return prod;
 	}
 	
 	public void addProductToCart(String productName) throws InterruptedException {
 		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCart).click();
-		waitElementForAppear(toastMessage);
+//		waitElementForAppear(toastMessage);
 //		waitElementUntillDissapear(spinner);
 		Thread.sleep(1000);
 		
