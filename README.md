@@ -3,14 +3,6 @@
 ## Introduction
 This is a Selenium WebDriver test automation for testing the Sauce Labs website. The project uses Java, TestNG, Gherkin, Cucumber, and Extent Report for testing.
 
-## Prerequisites
-- Java
-- Maven
-- WebDriver
-- TestNG
-- Cucumber
-- Extent Report
-
 ## Setup
 Clone the repository:
    ```sh
