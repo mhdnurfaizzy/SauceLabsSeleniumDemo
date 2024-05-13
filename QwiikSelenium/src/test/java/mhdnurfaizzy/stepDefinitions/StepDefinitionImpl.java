@@ -75,6 +75,17 @@ public class StepDefinitionImpl extends baseTesting{
         driver.quit();
     }
 
+    @And("I click on the logout button")
+    public void I_click_on_the_logout_button() {
+        loginPage.logOut();
+    }
+
+    @Then("I should be log out successfully")
+    public void I_should_be_logged_out_successfully() {
+        String URL = driver.getCurrentUrl();
+        Assert.assertEquals(URL, "https://www.saucedemo.com/" );
+    }
+
 
 
 }

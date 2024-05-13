@@ -32,6 +32,6 @@ Feature: User Login and Place Order
     And my order should be placed successfully
 
   Scenario: User logs out of the website
-    Given I am logged in to the Sauce Labs website
+    Given I login with email <email> and password <password>
     When I click on the logout button
     Then I should be logged out successfully

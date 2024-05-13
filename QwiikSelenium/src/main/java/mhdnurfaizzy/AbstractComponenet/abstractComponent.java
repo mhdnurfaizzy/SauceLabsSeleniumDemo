@@ -22,6 +22,12 @@ public class abstractComponent {
 
 	@FindBy(css=".app_logo")
 	WebElement appLogoHeader;
+
+	@FindBy(css="#react-burger-menu-btn")
+	WebElement burgerBtbHeader;
+
+	@FindBy(css="#logout_sidebar_link")
+	WebElement logOutSidebar;
 	
 	public abstractComponent(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -56,6 +62,14 @@ public class abstractComponent {
 	public LoginPage welcomePage() {
 		waitWebElementForAppear(appLogoHeader);
 		appLogoHeader.isDisplayed();
+		LoginPage loginPage = new LoginPage(driver);
+		return loginPage;
+	}
+
+	public LoginPage logOut() {
+		burgerBtbHeader.click();
+		waitWebElementForAppear(logOutSidebar);
+		logOutSidebar.click();
 		LoginPage loginPage = new LoginPage(driver);
 		return loginPage;
 	}
