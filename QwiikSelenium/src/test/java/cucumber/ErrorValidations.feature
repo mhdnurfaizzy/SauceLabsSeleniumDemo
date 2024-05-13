@@ -1,7 +1,7 @@
 
 @tag
 Feature: Error Validation
-  I want to use this template for my feature file
+  This feature to check error validation on login page with invalid cred
 
 #  @
   @Tag2
