@@ -1,4 +1,4 @@
-# Doc Technical Test Qwiik - Muhammad Nurfaizi
+# Sauce Labs Selenium Demo with Java
 
 ## Introduction
 This is a Selenium WebDriver test automation for testing the Sauce Labs website. The project uses Java, TestNG, Gherkin, Cucumber, and Extent Report for testing.
@@ -6,7 +6,7 @@ This is a Selenium WebDriver test automation for testing the Sauce Labs website.
 ## Setup
 Clone the repository:
    ```sh
-   git clone https://github.com/mhdnurfaizzy/Technical-Test-Qwiik.git
+   git clone [https://github.com/mhdnurfaizzy/Technical-Test-Qwiik.git]
    ```
 
 ## Running Tests
