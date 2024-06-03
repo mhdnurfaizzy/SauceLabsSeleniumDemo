@@ -6,7 +6,7 @@ This is a Selenium WebDriver test automation for testing the Sauce Labs website.
 ## Setup
 Clone the repository:
    ```sh
-   git clone [https://github.com/mhdnurfaizzy/Technical-Test-Qwiik.git]
+   git clone https://github.com/mhdnurfaizzy/SauceLabsSeleniumDemo.git
    ```
 
 ## Running Tests
